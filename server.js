@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
     })
 })
 
-app.get('/auth/home', authCtrl.home)
+
 app.get('/auth/sign-up', authCtrl.showSignUpForm )
 app.post('/auth/sign-up', authCtrl.signUp)
 app.get('/auth/sign-in', authCtrl.showSignInForm)
