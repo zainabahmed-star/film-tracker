@@ -14,6 +14,10 @@ const signUp = async (req, res) => {
         return res.send('Username already taken.')
     }
 
+    if (req.body.password !== req.body.confirmPassword){
+        return res.send('Password and cofirm password must match!')
+    }
+
     let userData = {}
     userData.username = req.body.username
 
@@ -27,7 +31,7 @@ const signUp = async (req, res) => {
         _id: user._id
     }
     req.session.save(() => {
-        res.redirect('/')
+        res.redirect('/auth/sign-in')
     })
 }
 
