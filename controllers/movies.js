@@ -1,4 +1,3 @@
-const isSignedin = require('../middleware/is-signed-in')
 const Movie = require('../models/movie')
 
 const index = async (req, res) => {
