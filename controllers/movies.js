@@ -9,6 +9,15 @@ const index = async (req, res) => {
     })
 }
 
+const showAddForm = (req, res) => {
+    res.render('movies/new.ejs', {
+        user: req.session.user
+    })
+}
+
+
+
 module.exports = {
     index,
+    showAddForm,
 }

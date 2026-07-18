@@ -9,6 +9,8 @@ const morgan = require("morgan");
 const session = require('express-session')
 const { MongoStore } = require('connect-mongo')
 
+const isSignedin = require('./middleware/is-signed-in')
+
 const authCtrl = require('./controllers/auth')
 const moviesCtrl = require('./controllers/movies')
 
