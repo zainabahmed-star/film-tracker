@@ -14,5 +14,15 @@
     <% if (!user) { %>
         <h1> browse movies</h1>
     <% }%>
+
+    <% allMovies.forEach((item) => { %>
+        <ul>
+            <img src="<%= item.posterURL %>" width="200px">
+        <h3> <%= item.title %> </h3>
+        <p>created by: <%= item.owner.username %> </p>
+        
+        </ul>
+    <% }) %>
 </body>
 </html>
+

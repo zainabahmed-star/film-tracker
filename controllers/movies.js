@@ -1,7 +1,7 @@
 const Movie = require('../models/movie')
 
 const index = async (req, res) => {
-    let allMovies = await Movie.find({})
+    let allMovies = await Movie.find({}).populate('owner')
 
     res.render('movies/index.ejs', {
         allMovies,
