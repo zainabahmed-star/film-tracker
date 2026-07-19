@@ -8,7 +8,7 @@
 <body>
     <h1> New Form</h1>
 
-    <form action="/movies" method="POST">
+    <form action="/movies" method="POST"  enctype="multipart/form-data">
 
         <label for="title">Title:</label>
         <input type="text" name="title">
@@ -20,8 +20,12 @@
         <input type="Number" name="releaseYear">
 
 
-        <label for="posterURL">Poster URL:</label>
-        <input type="text" name="posterURL">
+        <label for="image">Poster: </label>
+        <input type="file"
+        name="image"
+        id="image"
+        accept="image/jpeg,image/png,image/webp"
+        required>
 
         <button type="submit">+ Add</button>
     </form>

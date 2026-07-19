@@ -13,9 +13,15 @@ const movieSchema = new mongoose.Schema({
         type: Number,
         required: true,
     }, 
-    posterURL: {
+    image: {
+        url: {
+        type: String,
+        required: true, 
+    }, 
+    publicId: {
         type: String,
         required: true,
+    } 
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,

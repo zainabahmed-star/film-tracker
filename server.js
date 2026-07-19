@@ -8,6 +8,7 @@ const methodOverride = require("method-override");
 const morgan = require("morgan");
 const session = require('express-session')
 const { MongoStore } = require('connect-mongo')
+const upload = require('./config/multer.js')
 
 const isSignedin = require('./middleware/is-signed-in')
 
@@ -55,7 +56,7 @@ app.delete('/auth/sign-out', authCtrl.signOut)
 //movies routers
 app.get('/movies', moviesCtrl.index)
 app.get('/movies/new', isSignedin, moviesCtrl.showAddForm)
-app.post('/movies', moviesCtrl.create)
+app.post('/movies', isSignedin, upload.single('image'), moviesCtrl.create)
 
 app.get('/dashboard', async (req, res) => {
     if (!req.session.user){
