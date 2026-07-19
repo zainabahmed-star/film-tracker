@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="<%= foundmovie.image.url %>" width="200px">
+    <h1><%= foundmovie.title %></h1>
+    <p><%= foundmovie.genre %> - <%= foundmovie.releaseYear %></p>
+    <p>added by: <%= foundmovie.owner.username %></p>
+
+    <a href="/movies">Back to All movies</a>
+</body>
+</html>

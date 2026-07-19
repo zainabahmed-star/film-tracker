@@ -17,9 +17,11 @@
 
     <% allMovies.forEach((item) => { %>
         <ul>
+            <a href="/movies/<%= item._id %>">
             <img src="<%= item.image.url%>" width="200px">
-        <h3> <%= item.title %> </h3>
-        <p>created by: <%= item.owner.username %> </p>
+            <h3> <%= item.title %> </h3>
+            </a>
+       
 
         </ul>
     <% }) %>

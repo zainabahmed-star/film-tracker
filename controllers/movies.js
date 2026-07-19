@@ -69,8 +69,19 @@ const create = async (req, res) => {
 
 }
 
+
+const show = async (req, res) => {
+    const foundmovie = await Movie.findById(req.params.id).populate('owner')
+
+    res.render('movies/show.ejs', {
+        foundmovie,
+        user: req.session.user
+    })
+}
+
 module.exports = {
     index,
     showAddForm,
     create,
+    show,
 }
