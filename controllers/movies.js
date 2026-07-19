@@ -32,6 +32,7 @@ const index = async (req, res) => {
 
 const showAddForm = async (req, res) => {
     res.render('movies/new.ejs', {
+        user: req.session.user
     })
 }
 
@@ -85,7 +86,8 @@ const edit = async (req, res) => {
    
 
     res.render('movies/edit.ejs', {
-        foundmovie
+        foundmovie,
+        user: req.session.user
     })
 }
 

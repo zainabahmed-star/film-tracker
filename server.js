@@ -9,6 +9,7 @@ const morgan = require("morgan");
 const session = require('express-session')
 const { MongoStore } = require('connect-mongo')
 const upload = require('./config/multer.js')
+const path = require('path')
 
 const isSignedin = require('./middleware/is-signed-in')
 
@@ -25,6 +26,7 @@ mongoose.connection.on("connected", () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
+app.use(express.static(path.join(__dirname, "public")))
 // Middleware to parse URL-encoded data from forms
 app.use(express.urlencoded({ extended: false }));
 // Middleware for using HTTP verbs such as PUT or DELETE
