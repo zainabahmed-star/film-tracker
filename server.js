@@ -55,6 +55,7 @@ app.delete('/auth/sign-out', authCtrl.signOut)
 //movies routers
 app.get('/movies', moviesCtrl.index)
 app.get('/movies/new', isSignedin, moviesCtrl.showAddForm)
+app.post('/movies', moviesCtrl.create)
 
 app.get('/dashboard', async (req, res) => {
     if (!req.session.user){

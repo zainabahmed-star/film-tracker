@@ -9,15 +9,27 @@ const index = async (req, res) => {
     })
 }
 
-const showAddForm = (req, res) => {
+const showAddForm = async (req, res) => {
     res.render('movies/new.ejs', {
-        user: req.session.user
     })
 }
 
+const create = async (req, res) => {
+    const movieData = {}
 
+    movieData.title = req.body.title
+    movieData.genre = req.body.genre 
+    movieData.releaseYear = req.body.releaseYear
+    movieData.posterURL = req.body.posterURL
+    movieData.owner = req.session.user._id
+
+    let createdMovie = await Movie.create(movieData)
+
+    res.redirect('/movies')
+}
 
 module.exports = {
     index,
     showAddForm,
+    create,
 }
