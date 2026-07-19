@@ -58,6 +58,7 @@ app.get('/movies', moviesCtrl.index)
 app.get('/movies/new', isSignedin, moviesCtrl.showAddForm)
 app.post('/movies', isSignedin, upload.single('image'), moviesCtrl.create)
 app.get('/movies/:id', moviesCtrl.show)
+app.get('/movies/:id/edit', isSignedin, moviesCtrl.edit)
 
 app.get('/dashboard', async (req, res) => {
     if (!req.session.user){

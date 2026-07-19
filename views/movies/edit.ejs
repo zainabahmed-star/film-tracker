@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1> Edit Form</h1>
+
+    <form action="/movies/<%= foundmovie._id %>?_method=PUT" method="POST"  enctype="multipart/form-data">
+
+        <label for="title">Title:</label>
+        <input type="text" name="title" value="<%= foundmovie.title %>">
+
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" value="<%= foundmovie.genre %>">
+
+        <label for="releaseYear">Release Year:</label>
+        <input type="Number" name="releaseYear" value="<%= foundmovie.releaseYear %>">
+
+
+        <label for="image">Poster: </label>
+        <input type="file"
+        name="image"
+        id="image"
+        accept="image/jpeg,image/png,image/webp"
+        required
+        value="<%= foundmovie.image %>">
+
+        <button type="submit">+ Add</button>
+</body>
+</html>

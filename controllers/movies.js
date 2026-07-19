@@ -79,9 +79,19 @@ const show = async (req, res) => {
     })
 }
 
+const edit = async (req, res) => {
+    const foundmovie = await Movie.findById(req.params.id)
+
+    res.render('movies/edit.ejs', {
+        foundmovie
+    })
+}
+
+
 module.exports = {
     index,
     showAddForm,
     create,
     show,
+    edit,
 }
