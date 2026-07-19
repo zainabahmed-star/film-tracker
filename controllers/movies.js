@@ -110,6 +110,12 @@ const update = async(req,res)=>{
     res.redirect(`/movies/${req.params.id}`)
 }
 
+const deleteMovie = async (req, res) => {
+    const foundmovie = await Movie.findById(req.params.id)
+
+    await foundmovie.deleteOne()
+    res.redirect('/movies')
+}
 
 module.exports = {
     index,
@@ -118,4 +124,5 @@ module.exports = {
     show,
     edit,
     update,
+    deleteMovie,
 }

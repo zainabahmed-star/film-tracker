@@ -60,6 +60,7 @@ app.post('/movies', isSignedin, upload.single('image'), moviesCtrl.create)
 app.get('/movies/:id', moviesCtrl.show)
 app.get('/movies/:id/edit', isSignedin, moviesCtrl.edit)
 app.put('/movies/:id', isSignedin, upload.single('image'),  moviesCtrl.update)
+app.delete('/movies/:id', isSignedin, moviesCtrl.deleteMovie)
 
 app.get('/dashboard', async (req, res) => {
     if (!req.session.user){

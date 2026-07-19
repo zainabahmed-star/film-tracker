@@ -12,8 +12,13 @@
     <p>added by: <%= foundmovie.owner.username %></p>
 
     <a href="/movies">Back to All movies</a>
-     <% if (user && `${foundmovie.owner._id}` ===  `${user._id}`) { %>
+     <% if (user && foundmovie.owner._id.equals(user._id)) { %>
         <a href="/movies/<%= foundmovie._id %>/edit">Edit this Movie</a>
+
+         <form action="/movies/<%= foundmovie._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+
     <% }%>
     
 </body>
