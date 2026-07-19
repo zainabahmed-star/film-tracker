@@ -9,14 +9,18 @@
 <body>
     <nav>
         <div class="navbar">
-            <a href="/">Home</a>
+            <a href="/" class="logo">Film Tracker.</a>
+            
+            <div class="nav-links">
         <a href="/movies">Movies</a>
-
+        <a href="/dashboard">Dashboard</a>
         <% if (user) { %>
             <form action="/auth/sign-out?_method=DELETE" method="POST">
-            <button type="submit">Sign Out</button>
+            <button type="submit" class="signbtn">Sign Out</button>
         </form>
-            <% } %>
+            <% } %> 
+            </div>
+            
         </div>
         
     </nav>
