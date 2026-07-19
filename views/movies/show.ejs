@@ -12,6 +12,9 @@
     <p>added by: <%= foundmovie.owner.username %></p>
 
     <a href="/movies">Back to All movies</a>
-    <a href="/movies/<%= foundmovie._id %>/edit">Edit this Movie</a>
+     <% if (user) { %>
+        <a href="/movies/<%= foundmovie._id %>/edit">Edit this Movie</a>
+    <% }%>
+    
 </body>
 </html>
