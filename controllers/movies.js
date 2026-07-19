@@ -82,6 +82,8 @@ const show = async (req, res) => {
 const edit = async (req, res) => {
     const foundmovie = await Movie.findById(req.params.id)
 
+   
+
     res.render('movies/edit.ejs', {
         foundmovie
     })
@@ -95,7 +97,14 @@ const update = async(req,res)=>{
     movieData.title = req.body.title
     movieData.genre = req.body.genre
     movieData.releaseYear = req.body.releaseYear
-    movieData.image = req.body.image
+    
+    if (req.file) {
+        const uploadedImage = await uploadImage(req.file.buffer)
+        movieData.image = {
+            url: uploadedImage.secure_url,
+            publicId: uploadedImage.publicId,
+        }
+    }
 
     await Movie.findByIdAndUpdate(req.params.id, movieData)
     res.redirect(`/movies/${req.params.id}`)
@@ -108,4 +117,5 @@ module.exports = {
     create,
     show,
     edit,
+    update,
 }
