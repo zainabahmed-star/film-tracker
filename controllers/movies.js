@@ -87,6 +87,20 @@ const edit = async (req, res) => {
     })
 }
 
+const update = async(req,res)=>{
+    const foundmovie = await Movie.findById(req.params.id)
+
+    let movieData = {}
+
+    movieData.title = req.body.title
+    movieData.genre = req.body.genre
+    movieData.releaseYear = req.body.releaseYear
+    movieData.image = req.body.image
+
+    await Movie.findByIdAndUpdate(req.params.id, movieData)
+    res.redirect(`/movies/${req.params.id}`)
+}
+
 
 module.exports = {
     index,
