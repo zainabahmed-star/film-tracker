@@ -11,8 +11,21 @@
     <% if (user) { %>
         <h1>Welcome to the app, <%= user.username %>!</h1>
     <% } else { %>
-        <a href="/auth/sign-up">Sign Up</a>
-        <a href="/auth/sign-in">Sign In</a>
+        <div id="auth-text">
+            <!-- <p>Track. Log. Discover.</p> -->
+            <p>Your personal movie journal.</p>
+            <!-- <p>Turn movie talk into recommendations.</p> -->
+             <p>Get real picks from real recommendations.</p>
+
+        </div>
+
+
+        <div class="auth-links">
+        
+        <a href="/auth/sign-up" class="btn btn-success ">Sign Up</a>
+        <a href="/auth/sign-in" class="btn btn-success ">Sign In</a>
+        </div>
+        
     <% } %>
 
     
