@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Write a Review</h1>
+    <form action="/movies/<% movie._id %>/reviews" method="POST">
+
+        <label for="rating">Rating (1-5):</label>
+        <input type="number" name="rating" required>
+
+        <label for="text">Review:</label>
+        <textarea name="text" required></textarea>
+
+        <button type="submit">Submit Review</button>
+
+    </form>
+</body>
+</html>
