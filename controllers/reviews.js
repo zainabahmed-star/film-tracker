@@ -4,13 +4,11 @@ const Movie = require('../models/movie')
 const showForm = async (req, res) => {
     const movie = await Movie.findById(req.params.id)
 
-    res.render('reviews/show.ejs', {
+    res.render('reviews/new.ejs', {
         movie,
         user: req.session.user
     })
 }
-
-
 
 const create = async (req, res) => {
     const reviewData = {

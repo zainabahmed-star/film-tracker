@@ -17,7 +17,7 @@ const authCtrl = require('./controllers/auth')
 const moviesCtrl = require('./controllers/movies')
 const reviewsCtrl = require('./controllers/reviews')
 
-app.post('/movies/:movieId/reviews', isSignedin, reviewsCtrl.create)
+
 
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "3000";
@@ -69,7 +69,7 @@ app.delete('/movies/:id', isSignedin, moviesCtrl.deleteMovie)
 
 //review routers
 app.get('/movies/:id/reviews/new', reviewsCtrl.showForm)
-app.post('/movies/:id/reviews', reviewsCtrl.create )
+app.post('/movies/:id/reviews', isSignedin, reviewsCtrl.create )
 
 app.get('/dashboard', async (req, res) => {
     if (!req.session.user){

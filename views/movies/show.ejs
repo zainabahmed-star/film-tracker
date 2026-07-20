@@ -12,16 +12,27 @@
     <p><%= foundmovie.genre %> - <%= foundmovie.releaseYear %></p>
     <p>added by: <%= foundmovie.owner.username %></p>
 
+    <h3>Reviews</h3>
+<% foundreview.forEach(review => { %>
+    <div>
+        <p><strong><%= review.user.username %></strong> — <%= review.rating %>/5</p>
+        <p><%= review.text %></p>
+    </div>
+<% }) %>
+
+
+
     <a href="/movies">Back to All movies</a>
      <% if (user && foundmovie.owner._id.equals(user._id)) { %>
         <a href="/movies/<%= foundmovie._id %>/edit">Edit this Movie</a>
-
+    <a href="/movies/<%= foundmovie._id %>/reviews/new">Write a Review</a>
          <form action="/movies/<%= foundmovie._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete</button>
         </form>
 
     <% }%>
-    
+   
+
    
 </body>
 </html>
