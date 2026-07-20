@@ -9,12 +9,20 @@ body{
 }
 
 body:has(.auth-links) {
-background-image: url('/images/bg3.png');
+    background-image: url('/images/bg3.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     min-height: 100vh;
     
+}
+
+.auth-page {
+background-image: url('/images/bg3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
 }
 
 .auth-links {
