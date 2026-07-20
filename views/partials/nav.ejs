@@ -15,8 +15,10 @@
             
             <div class="nav-links-custom">
         <a href="/movies">Movies</a>
-        <a href="/dashboard">Dashboard</a>
+        
         <% if (user) { %>
+        <a href="/">Watchlist</a>
+        <a href="/">Watched</a>
             <form action="/auth/sign-out?_method=DELETE" method="POST">
             <button type="submit" class="signbtn">Sign Out</button>
         </form>

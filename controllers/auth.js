@@ -2,7 +2,9 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt')
 
 const showSignUpForm = (req, res) => {
-    res.render('auth/sign-up.ejs')
+    res.render('auth/sign-up.ejs', {
+        user: req.session.user
+    })
 }
 
 const signUp = async (req, res) => {
@@ -36,7 +38,9 @@ const signUp = async (req, res) => {
 }
 
 const showSignInForm = (req, res) => {
-    res.render('auth/sign-in.ejs')
+    res.render('auth/sign-in.ejs', {
+        user: req.session.user
+    })
 }
 
 const signIn = async (req, res) => {
