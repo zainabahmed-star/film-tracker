@@ -23,10 +23,32 @@ const create = async (req, res) => {
     res.redirect(`/movies/${req.params.id}`)
 }
 
+const showEditForm = async (req, res) => {
+    const foundreview = await Review.findById(req.params.id)
+
+    res.render('reviews/edit.ejs', {
+        foundreview,
+        user: req.session.user
+    })
+}
+
+const update = async (req, res) => {
+    const foundreview = await Review.findById(req.params.id)
+
+    let reviewData = {}
+
+    reviewData.rating = req.body.rating
+    reviewData.text = req.body.text
+
+    await Review.findByIdAndUpdate(req.params.id, reviewData)
+    res.redirect(`/movies/${req.params.id}`)
+}
 
 
 
 module.exports = {
     showForm,
     create,
+    showEditForm,
+    update,
 }

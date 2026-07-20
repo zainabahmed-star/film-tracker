@@ -70,6 +70,8 @@ app.delete('/movies/:id', isSignedin, moviesCtrl.deleteMovie)
 //review routers
 app.get('/movies/:id/reviews/new', reviewsCtrl.showForm)
 app.post('/movies/:id/reviews', isSignedin, reviewsCtrl.create )
+app.get('/movies/:id/reviews/:reviewId/edit', isSignedin, reviewsCtrl.showEditForm)
+app.get('/movies/:id/reviews/:reviewId', isSignedin, reviewsCtrl.update)
 
 app.get('/dashboard', async (req, res) => {
     if (!req.session.user){

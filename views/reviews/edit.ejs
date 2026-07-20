@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Edit Review Form</h1>
+   <form action="/movies/<%= foundmovie._id %>/reviews/<%= foundreview._id %>" method="POST">
+
+        <label for="rating">Rating (1-5):</label>
+        <input type="number" name="rating" min="1" max="5" value="<%= foundreview.rating %>" required >
+
+        <label for="text">Review:</label>
+        <textarea name="text" value="<%= foundreview.text %>"" required></textarea>
+
+        <button type="submit">Submit Edited Review</button>
+
+    </form>
+</body>
+</html>

@@ -26,6 +26,7 @@
      <% if (user && foundmovie.owner._id.equals(user._id)) { %>
         <a href="/movies/<%= foundmovie._id %>/edit">Edit this Movie</a>
     <a href="/movies/<%= foundmovie._id %>/reviews/new">Write a Review</a>
+    <a href="/movies/<%= foundmovie._id %>/reviews/<%= foundreview._id %>/edit">Edit Review</a>
          <form action="/movies/<%= foundmovie._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete</button>
         </form>
