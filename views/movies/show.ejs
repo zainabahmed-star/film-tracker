@@ -17,21 +17,28 @@
     <div>
         <p><strong><%= review.user.username %></strong> — <%= review.rating %>/5</p>
         <p><%= review.text %></p>
+
+        <% if (user && review.user._id.equals(user._id)) { %>
+            <a href="/movies/<%= foundmovie._id %>/reviews/<%= review._id %>/edit">Edit Review</a>
+            <form action="/movies/<%= foundmovie._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete Review</button>
+            </form>
+        <% } %>
     </div>
 <% }) %>
 
+<a href="/movies">Back to All movies</a>
 
+<% if (user && foundmovie.owner._id.equals(user._id)) { %>
+    <a href="/movies/<%= foundmovie._id %>/edit">Edit this Movie</a>
+    <form action="/movies/<%= foundmovie._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Movie</button>
+    </form>
+<% } %>
 
-    <a href="/movies">Back to All movies</a>
-     <% if (user && foundmovie.owner._id.equals(user._id)) { %>
-        <a href="/movies/<%= foundmovie._id %>/edit">Edit this Movie</a>
+<% if (user) { %>
     <a href="/movies/<%= foundmovie._id %>/reviews/new">Write a Review</a>
-    <a href="/movies/<%= foundmovie._id %>/reviews/<%= foundreview._id %>/edit">Edit Review</a>
-         <form action="/movies/<%= foundmovie._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete</button>
-        </form>
-
-    <% }%>
+<% } %>
    
 
    

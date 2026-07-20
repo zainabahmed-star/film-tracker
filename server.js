@@ -71,7 +71,8 @@ app.delete('/movies/:id', isSignedin, moviesCtrl.deleteMovie)
 app.get('/movies/:id/reviews/new', reviewsCtrl.showForm)
 app.post('/movies/:id/reviews', isSignedin, reviewsCtrl.create )
 app.get('/movies/:id/reviews/:reviewId/edit', isSignedin, reviewsCtrl.showEditForm)
-app.get('/movies/:id/reviews/:reviewId', isSignedin, reviewsCtrl.update)
+app.put('/movies/:id/reviews/:reviewId', isSignedin, reviewsCtrl.update)
+app.delete('/movies/:id/reviews/:reviewId', isSignedin, reviewsCtrl.deleteReview)
 
 app.get('/dashboard', async (req, res) => {
     if (!req.session.user){

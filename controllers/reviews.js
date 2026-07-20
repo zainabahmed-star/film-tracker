@@ -24,7 +24,7 @@ const create = async (req, res) => {
 }
 
 const showEditForm = async (req, res) => {
-    const foundreview = await Review.findById(req.params.id)
+    const foundreview = await Review.findById(req.params.reviewId)
 
     res.render('reviews/edit.ejs', {
         foundreview,
@@ -33,14 +33,21 @@ const showEditForm = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    const foundreview = await Review.findById(req.params.id)
+    const foundreview = await Review.findById(req.params.reviewId)
 
     let reviewData = {}
 
     reviewData.rating = req.body.rating
     reviewData.text = req.body.text
 
-    await Review.findByIdAndUpdate(req.params.id, reviewData)
+    await Review.findByIdAndUpdate(req.params.reviewId, reviewData)
+    res.redirect(`/movies/${req.params.id}`)
+}
+
+const deleteReview = async (req, res) => {
+    const foundreview = await Review.findById(req.params.reviewId)
+    
+    await foundreview.deleteOne()
     res.redirect(`/movies/${req.params.id}`)
 }
 
@@ -51,4 +58,5 @@ module.exports = {
     create,
     showEditForm,
     update,
+    deleteReview,
 }
