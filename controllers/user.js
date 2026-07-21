@@ -22,7 +22,33 @@ const showWatchlist = async (req, res) => {
     })
 }
 
+const showWatched = async (req, res) => {
+    const user = await User.findById(req.session.user._id).populate('watched')
+
+    res.render('users/watched.ejs', {
+        movies: user.watched,
+        user: req.session.user,
+    })
+}
+
+const addWatched = async (req, res) => {
+    const user = await User.findById(req.session.user._id)
+
+    if (!user.watched.includes(req.params.id)){
+          user.watched.push(req.params.id)
+
+           await user.save()
+    }
+  
+
+    res.redirect(`/watched`)
+}
+
+
+
 module.exports = {
     addWatchlist,
     showWatchlist,
+    showWatched,
+    addWatched,
 }

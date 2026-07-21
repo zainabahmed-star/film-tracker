@@ -77,8 +77,8 @@ app.delete('/movies/:id/reviews/:reviewId', isSignedin, reviewsCtrl.deleteReview
 //user routers
 app.post('/watchlist/:id', isSignedin, usersCtrl.addWatchlist)
 app.get('/watchlist', isSignedin, usersCtrl.showWatchlist)
-
-
+app.get('/watched', isSignedin, usersCtrl.showWatched)
+app.post('/watched/:id', isSignedin, usersCtrl.addWatched)
 
 app.get('/dashboard', async (req, res) => {
     if (!req.session.user){
