@@ -45,11 +45,19 @@ const addWatched = async (req, res) => {
 }
 
 const removeFromWatched = async (req, res) => {
-    const user = await User.findById(req.session.user._id)
+    const user = await User.findByIdAndUpdate(req.session.user._id, {
+        $pull: { watched: req.params.id}
+    })
 
-    // here!
-    
     res.redirect('/watched')
+}
+
+const removeFromWatchlist = async (req, res) => {
+    const user = await User.findByIdAndUpdate(req.session.user._id, {
+        $pull: { watchlist: req.params.id}
+    })
+
+    res.redirect('/watchlist')
 }
 
 
@@ -59,4 +67,5 @@ module.exports = {
     showWatched,
     addWatched,
     removeFromWatched,
+    removeFromWatchlist,
 }
