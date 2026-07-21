@@ -1,12 +1,56 @@
 <%- include('../partials/nav.ejs') %>
 
-    <img src="<%= foundmovie.image.url %>" width="200px">
-    <h1><%= foundmovie.title %></h1>
-    <p><%= foundmovie.genre %> - <%= foundmovie.releaseYear %></p>
-    <p>added by: <%= foundmovie.owner.username %></p>
+    
+<div class="movie-up" style="background-image: linear-gradient(180deg, rgba(20,24,28,0.2) 0%, rgba(20,24,28,0.95) 85%), url('<%= foundmovie.image.url %>')">
+  <div class="movie-up-content">
+    <div class="movie-card">
+      <img src="<%= foundmovie.image.url %>">
+    </div>
 
-    <h3>Reviews</h3>
-<% foundreview.forEach(review => { %>
+    <div class="movie-content">
+      <h1 class="movie-title"><%= foundmovie.title %></h1>
+      <p class="movie-data">
+        <span><%= foundmovie.releaseYear %></span>
+        <span class="dot">•</span>
+        <span>Added by: <%= foundmovie.owner.username %></span>
+      </p>
+      <p class="movie-genre"><%= foundmovie.genre %></p>
+
+      <% if (user) { %>
+        <div class="actions">
+          <a class="btn btn-outline-success btn-sm" href="/movies/<%= foundmovie._id %>/reviews/new">Write a Review</a>
+          <form action="/watchlist/<%= foundmovie._id %>" method="POST">
+            <button type="submit" class="icon-btn btn btn-secondary btn-sm"  title="Add to Watchlist">+ Watchlist</button>
+          </form>
+          <form action="/watched/<%= foundmovie._id %>" method="POST">
+            <button type="submit" class="icon-btn btn btn-secondary btn-sm" title="Mark as Watched">✓ Watched</button>
+          </form>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<div class="movieBody">
+    <% if (user && foundmovie.owner._id.equals(user._id)) { %>
+        <div class="user-section">
+            <a href="/movies/<%= foundmovie._id %>/edit">Edit this Movie</a>
+            <form action="/movies/<%= foundmovie._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="link-button">Delete Movie</button>
+    </form>
+        </div>
+
+     <% } %>   
+</div>
+
+  <section class="reviews-section">
+    <h3 class="section-label">Reviews</h3>
+
+    <% if (foundreview.length === 0) { %>
+      <p class="empty">No reviews yet — be the first to log this film.</p>
+    <% } %>
+
+    <% foundreview.forEach(review => { %>
     <div>
         <p><strong><%= review.user.username %></strong> — <%= review.rating %>/5</p>
         <p><%= review.text %></p>
@@ -19,28 +63,19 @@
         <% } %>
     </div>
 <% }) %>
+    
+  </section>
 
-<a href="/movies">Back to All movies</a>
+</div>
 
-<% if (user && foundmovie.owner._id.equals(user._id)) { %>
-    <a href="/movies/<%= foundmovie._id %>/edit">Edit this Movie</a>
-    <form action="/movies/<%= foundmovie._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Movie</button>
-    </form>
-<% } %>
 
-<% if (user) { %>
-    <a href="/movies/<%= foundmovie._id %>/reviews/new">Write a Review</a>
 
-    <form action="/watchlist/<%= foundmovie._id %>" method="POST">
-        <button type="submit">Add to Watchlist</button>
-    </form>
+    
+    
 
-    <form action="/watched/<%= foundmovie._id %>" method="POST">
-        <button type="submit">Mark as Watched</button>
-    </form>
 
-<% } %>
+
+
    
 
    

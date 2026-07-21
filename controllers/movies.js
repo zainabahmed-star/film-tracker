@@ -1,6 +1,8 @@
 const Movie = require('../models/movie')
 const cloudinary = require('../config/cloudinary.js')
 const Review = require('../models/review')
+const User = require('../models/user.js')
+
 
 const uploadImage = (fileBuffer) => {
   return new Promise((resolve, reject) => {
@@ -75,7 +77,7 @@ const create = async (req, res) => {
 const show = async (req, res) => {
     const foundmovie = await Movie.findById(req.params.id).populate('owner')
     const foundreview = await Review.find({ movie: req.params.id }).populate('user')
-    
+
 
     res.render('movies/show.ejs', {
         foundmovie,

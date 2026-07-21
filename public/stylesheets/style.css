@@ -213,3 +213,105 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7);
     font-weight: 500;
     font-family: "Bricolage Grotesque", sans-serif;
 }
+
+.movie-up {
+    background-size: cover;
+    background-position: center;
+    padding: 60px 60px 32px;
+}
+
+.movie-up-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 28px;
+    align-items: flex-end;
+}
+
+.movie-card {
+    flex: 0 0 160px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0,0.6);
+}
+
+.movie-card img {
+    width: 100%;
+    display: block;
+}
+
+.movie-content {
+    padding-bottom: 12px;
+}
+
+.movie-title {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+    margin: 0 0 6px;
+}
+
+.movie-data {
+    font-size: 15px;
+    margin: 0 0 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.64px;
+}
+
+.movie-data .dot {
+margin: 0 6px;
+}
+
+.movie-genre {
+    font-size: 14px;
+    margin: 0 0 16px;
+}
+
+.actions{
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+
+.movieBody {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.user-section {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    font-size: 13px;
+}
+
+.user-section a, .link-button{
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font-size: 15px;
+  color: #fff;
+}
+
+.link-button:hover{
+color: red;
+}
+
+.section-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid gray;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+.empty {
+    font-style: italic;
+}

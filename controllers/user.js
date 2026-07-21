@@ -5,8 +5,7 @@ const addWatchlist = async (req, res) => {
 
     if (!user.watchlist.includes(req.params.id)){
           user.watchlist.push(req.params.id)
-
-           await user.save()
+          await user.save()
     }
   
 

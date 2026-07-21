@@ -64,7 +64,8 @@ const signIn = async (req, res) => {
 
     req.session.user = {
         username: userInDatabase.username,
-        _id: userInDatabase._id
+        _id: userInDatabase._id,
+       
     }
     req.session.save(() => {
         res.redirect('/')
