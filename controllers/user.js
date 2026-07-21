@@ -44,6 +44,13 @@ const addWatched = async (req, res) => {
     res.redirect(`/watched`)
 }
 
+const removeFromWatched = async (req, res) => {
+    const user = await User.findById(req.session.user._id)
+
+    // here!
+    
+    res.redirect('/watched')
+}
 
 
 module.exports = {
@@ -51,4 +58,5 @@ module.exports = {
     showWatchlist,
     showWatched,
     addWatched,
+    removeFromWatched,
 }
