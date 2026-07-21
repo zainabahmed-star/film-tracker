@@ -9,6 +9,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    watchlist: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movie',
+    }],
+    watched: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movie',
+    }],
 })
 
 const User = mongoose.model('User', userSchema)
