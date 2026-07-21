@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> Edit Review Form</h1>
-   <form action="/movies/<%= foundreview.movie %>/reviews/<%= foundreview._id %>?_method=PUT" method="POST">
+<%- include('../partials/nav.ejs') %>
+
+<div class="new-page-container">
+     <h1> Edit Your Review</h1>
+   <form action="/movies/<%= foundreview.movie %>/reviews/<%= foundreview._id %>?_method=PUT" method="POST" class="add-movie-form">
 
         <label for="rating">Rating (1-5):</label>
         <input type="number" name="rating" min="1" max="5" value="<%= foundreview.rating %>" required >
@@ -15,8 +10,11 @@
         <label for="text">Review:</label>
         <textarea name="text" required><%= foundreview.text %></textarea>
 
-        <button type="submit">Submit Edited Review</button>
+        <button type="submit" class="btn btn-warning">Update</button>
 
+         
     </form>
+</div>
+   
 </body>
 </html>

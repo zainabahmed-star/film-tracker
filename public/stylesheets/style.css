@@ -366,3 +366,8 @@ color: red;
     border: none;
     margin-top: 8px;
 }
+
+.back-link {
+    color: #000;
+    text-decoration: none;
+}

@@ -13,7 +13,7 @@
         <div class="navbar-custom">
             <a href="/movies" class="logo">Film Tracker.</a>
             
-            <div class="nav-links-custom">
+        <div class="nav-links-custom">
         <a href="/movies">Movies</a>
         
         <% if (user) { %>
@@ -22,10 +22,13 @@
             <form action="/auth/sign-out?_method=DELETE" method="POST">
             <button type="submit" class="signbtn btn btn-danger btn-sm">Sign Out</button>
         </form>
-            <% } %> 
+            <% } %>
+                
             </div>
             
         </div>
+
+        
         
     </nav>
 </body>
