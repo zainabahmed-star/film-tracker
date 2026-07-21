@@ -315,3 +315,54 @@ color: red;
 .empty {
     font-style: italic;
 }
+
+.new-page-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.new-page-container h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.add-movie-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+}
+/* #ccc; */
+.add-movie-form label{
+    font-size: 14px;
+    color: #000;
+    margin-bottom: -8px;
+}
+
+.add-movie-form input[type="text"],
+.add-movie-form input[type="number"] {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #f3f2f2;
+    color: #000;
+    font-size: 14px;
+}
+
+.add-movie-form input[type="file"]{
+    padding: 8px 0;
+    color: #a7a6a6;
+    font-size: 13px;
+
+}
+
+.add-movie-form button {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 8px;
+}

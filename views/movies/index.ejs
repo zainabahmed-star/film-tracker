@@ -10,7 +10,7 @@
 
     <div class="movies-header">
        <% if (user){ %>
-        <h1>Browse movies</h1>
+        <h1><%= user.username %>'s Dashboard</h1>
         <a href="/movies/new" class="btn btn-success btn-sm">Add Movie</a>
     <% }%>
 
@@ -31,6 +31,7 @@
             </a>
             <div class="movie-info">
                 <span><%= item.genre %></span>
+                <span class="dot">•</span>
                 <span><%= item.releaseYear %></span>
             </div>
 
