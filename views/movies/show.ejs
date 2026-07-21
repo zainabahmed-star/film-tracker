@@ -1,12 +1,5 @@
 <%- include('../partials/nav.ejs') %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     <img src="<%= foundmovie.image.url %>" width="200px">
     <h1><%= foundmovie.title %></h1>
     <p><%= foundmovie.genre %> - <%= foundmovie.releaseYear %></p>
@@ -39,7 +32,10 @@
 <% if (user) { %>
     <a href="/movies/<%= foundmovie._id %>/reviews/new">Write a Review</a>
 
-    
+    <form action="/watchlist/<%= foundmovie._id %>" method="POST">
+        <button type="submit">Add to Watchlist</button>
+    </form>
+
 <% } %>
    
 

@@ -1,0 +1,16 @@
+<%- include('../partials/nav.ejs') %>
+
+<h1>My Watchlist</h1>
+
+<ul>
+    <% movies.forEach(item => { %>
+
+        <li>
+            <a href="/movies/<%= item._id %>">
+                <img src="<%= item.image.url %>" width="100">
+                <h3><%= item.title %></h3>
+            </a>
+        </li>
+
+   <% }) %>
+</ul>

@@ -1,0 +1,28 @@
+const User = require('../models/user')
+
+const addWatchlist = async (req, res) => {
+    const user = await User.findById(req.session.user._id)
+
+    if (!user.watchlist.includes(req.params.id)){
+          user.watchlist.push(req.params.id)
+
+           await user.save()
+    }
+  
+
+    res.redirect(`/watchlist`)
+}
+
+const showWatchlist = async (req, res) => {
+    const user = await User.findById(req.session.user._id).populate('watchlist')
+
+    res.render('users/watchlist.ejs', {
+        movies: user.watchlist,
+        user: req.session.user,
+    })
+}
+
+module.exports = {
+    addWatchlist,
+    showWatchlist,
+}

@@ -16,7 +16,7 @@ const isSignedin = require('./middleware/is-signed-in')
 const authCtrl = require('./controllers/auth')
 const moviesCtrl = require('./controllers/movies')
 const reviewsCtrl = require('./controllers/reviews')
-
+const usersCtrl = require('./controllers/user.js')
 
 
 // Set the port from environment variable or default to 3000
@@ -73,6 +73,12 @@ app.post('/movies/:id/reviews', isSignedin, reviewsCtrl.create )
 app.get('/movies/:id/reviews/:reviewId/edit', isSignedin, reviewsCtrl.showEditForm)
 app.put('/movies/:id/reviews/:reviewId', isSignedin, reviewsCtrl.update)
 app.delete('/movies/:id/reviews/:reviewId', isSignedin, reviewsCtrl.deleteReview)
+
+//user routers
+app.post('/watchlist/:id', isSignedin, usersCtrl.addWatchlist)
+app.get('/watchlist', isSignedin, usersCtrl.showWatchlist)
+
+
 
 app.get('/dashboard', async (req, res) => {
     if (!req.session.user){
