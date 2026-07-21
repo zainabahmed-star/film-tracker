@@ -7,25 +7,40 @@
     <title>Document</title>
 </head>
 <body>
-    <% if (user){ %>
+
+    <div class="movies-header">
+       <% if (user){ %>
         <h1>Browse movies</h1>
-        <a href="/movies/new">Add Movie</a>
+        <a href="/movies/new" class="btn btn-success btn-sm">Add Movie</a>
     <% }%>
 
     <% if (!user) { %>
         <h1> browse movies</h1>
     <% }%>
-
-    <% allMovies.forEach((item) => { %>
-        <ul>
+  
+    </div>
+   
+    <div class="movie-grid">
+         <% allMovies.forEach((item) => { %>
+        <div class="movie-card">
             <a href="/movies/<%= item._id %>">
-            <img src="<%= item.image.url%>" width="200px">
-            <h3> <%= item.title %> </h3>
+                <div class="poster-wrap">
+                    <img src="<%= item.image.url%>" class="rounded">
+                     <span class="poster-title"><%= item.title %></span>
+                </div>
             </a>
+            <div class="movie-info">
+                <span><%= item.genre %></span>
+                <span><%= item.releaseYear %></span>
+            </div>
+
+        </div>
+            
        
 
-        </ul>
     <% }) %>
+    </div>
+   
 </body>
 </html>
 

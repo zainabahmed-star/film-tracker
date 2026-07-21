@@ -146,3 +146,70 @@ text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7);
     font-size: 25px;
     margin-bottom: 50px;
 }
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 24px;
+}
+
+.movie-card {
+    text-align: center;
+}
+
+.movie-card a{
+    text-decoration: none;
+}
+.poster-wrap {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.poster-wrap img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.poster-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    color: #fff;
+    padding: 20px 12px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.movie-info {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: white;
+}
+
+.movies-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px 10px;
+    border-bottom: 1px solid #99999937;
+    margin-bottom: 10px;
+}
+
+.movies-header h1{
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
