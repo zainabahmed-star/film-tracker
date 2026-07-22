@@ -73,13 +73,9 @@ const create = async (req, res) => {
 
 }
 
-
 const show = async (req, res) => {
     const foundmovie = await Movie.findById(req.params.id).populate('owner')
     const foundreview = await Review.find({ movie: req.params.id }).populate('user')
-
-
-    // use the User model... see if .some(movie) is in watchlist array on model
 
     let inWatchlist = false
 
@@ -88,11 +84,11 @@ const show = async (req, res) => {
     if (req.session.user){
       const founduser = await User.findById(req.session.user._id)
 
-    const inWatchlist = founduser.watchlist.some((item) => {
+    inWatchlist = founduser.watchlist.some((item) => {
       return item.equals(foundmovie._id)
     })
 
-    const inWatched = founduser.watched.some((item) => {
+    inWatched = founduser.watched.some((item) => {
       return item.equals(foundmovie._id)
     })
     }
