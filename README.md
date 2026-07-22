@@ -3,6 +3,9 @@
 Film Tracker is a full-stack website that helps movie fans track the films they've watched and want to watch.
 Users can browse a shared movie catalog, add new movies, mark them as watched/watchlist, and add reviews.
 
+<img width="1440" height="900" alt="Screenshot 2026-07-22 at 12 22 10 PM" src="https://github.com/user-attachments/assets/e875c788-0fb8-443a-8b0d-0900b0d3817f" />
+
+
 ## Getting Started 
 - Deploy link:
 - https://trello.com/b/6v9QGA0l/movie-project
