@@ -2,19 +2,20 @@
 
 <h1>What I've Seen</h1>
 
-<ul>
+
+
+<div class="movie-grid">
     <% movies.forEach(item => { %>
-
-        <li>
+        <div class="movie-card">
             <a href="/movies/<%= item._id %>">
-                <img src="<%= item.image.url %>" width="100">
-                <h3><%= item.title %></h3>
+                <div class="poster-wrap">
+                    <img src="<%= item.image.url %>" width="100">
+                     <span class="poster-title"><%= item.title %></span>
+                </div>
             </a>
-
             <form action="/watched/<%= item._id %>?_method=DELETE" method="POST">
-            <button type="submit">Remove</button>
-        </form>
-        </li>
+            <button type="submit" class="btn btn-secondary btn-sm" >Remove</button>
+            </form>
 
-   <% }) %>
-</ul>
+        </div>
+       <% }) %> 
