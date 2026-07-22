@@ -50,10 +50,9 @@
     <% if (user && foundmovie.owner._id.equals(user._id)) { %>
         <div class="user-section">
             <a href="/movies/<%= foundmovie._id %>/edit">Edit this Movie</a>
-            <form action="/movies/<%= foundmovie._id %>?_method=DELETE" method="POST">
-        <button type="submit" class="link-button">Delete Movie</button>
-    </form>
+            <a href="/movies/<%= foundmovie._id %>/delete" class="link-button">Delete Movie</a>
         </div>
+        
 
      <% } %>   
 </div>

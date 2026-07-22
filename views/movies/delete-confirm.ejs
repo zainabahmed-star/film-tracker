@@ -1,0 +1,27 @@
+<%- include('../partials/nav.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="confirm-container">
+    <h1>Delete "<%= foundmovie.title %>"?</h1>
+    <p>This action cannot be undone.</p>
+
+    <div class="confirm-actions">
+        <form action="/movies/<%= foundmovie._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="confirm-delete-btn">Yes, Delete</button>
+        </form>
+
+        <a href="/movies/<%= foundmovie._id %>" class="cancel-link">Cancel</a>
+    </div>
+</div>
+
+
+</body>
+</html>
