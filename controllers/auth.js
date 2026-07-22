@@ -3,7 +3,8 @@ const bcrypt = require('bcrypt')
 
 const showSignUpForm = (req, res) => {
     res.render('auth/sign-up.ejs', {
-        user: req.session.user
+        user: req.session.user,
+        error: null,
     })
 }
 
@@ -13,15 +14,24 @@ const signUp = async (req, res) => {
     })
 
     if (userInDatabase) {
-        return res.send('Username already taken.')
+        return res.render('auth/sign-up.ejs', {
+            error: 'Username already taken.',
+            user: req.session.user
+        })
     }
 
     if (req.body.password.length < 6) {
-        return res.send('Password must be at least 6 characters long')
+         return res.render('auth/sign-up.ejs', {
+            error: 'Password must be at least 6 characters long.',
+            user: req.session.user
+        })
     }
 
     if (req.body.password !== req.body.confirmPassword){
-        return res.send('Password and cofirm password must match!')
+        return res.render('auth/sign-up.ejs', {
+            error: 'Password and confirm password must match!',
+            user: req.session.user
+        })
     }
 
     let userData = {}

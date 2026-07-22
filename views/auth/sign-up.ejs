@@ -10,9 +10,14 @@
 <body class="auth-page">
     <h1 id="newAccountH1">Create a new account</h1>
 
+    
     <form action="/auth/sign-up" method="POST" class="auth-form">
         <label for="username">Username:</label>
         <input type="text" name="username" />
+
+        <% if (error) { %>
+        <p class="error-message"><%= error %></p>
+        <% } %>
 
         <label for="password">Password:</label>
         <input type="password" name="password" />

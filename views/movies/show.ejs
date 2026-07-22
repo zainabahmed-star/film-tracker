@@ -58,30 +58,32 @@
      <% } %>   
 </div>
 
-  <section class="reviews-section">
+<section class="reviews-section">
     <h3 class="section-label">Reviews</h3>
 
     <% if (foundreview.length === 0) { %>
-      <p class="empty-state">No reviews yet — be the first to log this film.</p>
+        <p class="empty-state">No reviews yet — be the first to log this film.</p>
     <% } %>
 
     <% foundreview.forEach(review => { %>
-    <div>
-        <p><strong><%= review.user.username %></strong> — <%= review.rating %>/5</p>
-        <p><%= review.text %></p>
+        <div class="review-card">
+            <div class="review-header">
+                <span class="review-author"><%= review.user.username %></span>
+                <span class="review-rating"><%= review.rating %>/5 ★</span>
+            </div>
+            <p class="review-text"><%= review.text %></p>
 
-        <% if (user && review.user._id.equals(user._id)) { %>
-            <a href="/movies/<%= foundmovie._id %>/reviews/<%= review._id %>/edit">Edit Review</a>
-            <form action="/movies/<%= foundmovie._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete Review</button>
-            </form>
-        <% } %>
-    </div>
-<% }) %>
-    
-  </section>
-
-</div>
+            <% if (user && review.user._id.equals(user._id)) { %>
+                <div class="review-actions">
+                    <a href="/movies/<%= foundmovie._id %>/reviews/<%= review._id %>/edit">Edit</a>
+                    <form action="/movies/<%= foundmovie._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            <% } %>
+        </div>
+    <% }) %>
+</section>
 
 
 
