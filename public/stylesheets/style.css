@@ -312,7 +312,7 @@ color: red;
     margin-bottom: 16px;
 }
 
-.empty {
+.empty-state {
     font-style: italic;
 }
 
@@ -369,5 +369,10 @@ color: red;
 
 .back-link {
     color: #000;
+    text-decoration: none;
+}
+
+.back-link-index {
+    color: white;
     text-decoration: none;
 }

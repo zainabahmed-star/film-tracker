@@ -9,7 +9,7 @@ const addWatchlist = async (req, res) => {
     }
   
 
-    res.redirect(`/watchlist`)
+    res.redirect(`/movies/${req.params.id}`)
 }
 
 const showWatchlist = async (req, res) => {
@@ -40,7 +40,7 @@ const addWatched = async (req, res) => {
     }
   
 
-    res.redirect(`/watched`)
+    res.redirect(`/movies/${req.params.id}`)
 }
 
 const removeFromWatched = async (req, res) => {

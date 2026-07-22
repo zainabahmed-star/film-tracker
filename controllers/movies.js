@@ -78,11 +78,39 @@ const show = async (req, res) => {
     const foundmovie = await Movie.findById(req.params.id).populate('owner')
     const foundreview = await Review.find({ movie: req.params.id }).populate('user')
 
+//     const isFound = await User.findById(req.session.user._id)
+//     isFound.watched.forEach((item)=>{
+//       console.log("check");
+      
+// if(item.equals(foundmovie)){
+//   console.log("true==========");
+// }
+    // })
+// console.log(isFound.watched[0],"here");
 
+    // console.log(isFound,"==========================");
+
+    // use the User model... see if .some(movie) is in watchlist array on model
+
+    const founduser = await User.findById(req.session.user._id)
+
+
+    const inWatchlist = founduser.watchlist.some((item) => {
+      return item.equals(foundmovie._id)
+    })
+
+    const inWatched = founduser.watched.some((item) => {
+      return item.equals(foundmovie._id)
+    })
+
+  
     res.render('movies/show.ejs', {
         foundmovie,
         foundreview,
         user: req.session.user,
+        founduser,
+        inWatchlist,
+        inWatched,
     })
 }
 

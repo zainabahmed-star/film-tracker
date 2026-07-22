@@ -19,12 +19,27 @@
       <% if (user) { %>
         <div class="actions">
           <a class="btn btn-outline-success btn-sm" href="/movies/<%= foundmovie._id %>/reviews/new">Write a Review</a>
+
+           <% if (inWatchlist) { %>
+            
+             <form action="/watchlist/<%= foundmovie._id %>" method="POST">
+            <button class="icon-btn btn btn-success btn-sm"  title="Add to Watchlist">In Watchlist</button>
+          </form>
+             <% } else { %> 
           <form action="/watchlist/<%= foundmovie._id %>" method="POST">
             <button type="submit" class="icon-btn btn btn-secondary btn-sm"  title="Add to Watchlist">+ Watchlist</button>
           </form>
-          <form action="/watched/<%= foundmovie._id %>" method="POST">
-            <button type="submit" class="icon-btn btn btn-secondary btn-sm" title="Mark as Watched">✓ Watched</button>
+           <% } %>
+
+           <% if (inWatched) { %>
+            <form action="/watched/<%= foundmovie._id %>" method="POST">
+            <button class="icon-btn btn btn-success btn-sm" title="Mark as Watched">✓ Watched</button>
           </form>
+ <% } else { %> 
+          <form action="/watched/<%= foundmovie._id %>" method="POST">
+            <button type="submit" class="icon-btn btn btn-secondary btn-sm" title="Mark as Watched">Mark as Watched</button>
+          </form>
+       <% } %>
         </div>
       <% } %>
     </div>
@@ -47,7 +62,7 @@
     <h3 class="section-label">Reviews</h3>
 
     <% if (foundreview.length === 0) { %>
-      <p class="empty">No reviews yet — be the first to log this film.</p>
+      <p class="empty-state">No reviews yet — be the first to log this film.</p>
     <% } %>
 
     <% foundreview.forEach(review => { %>
